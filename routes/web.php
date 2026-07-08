@@ -8,7 +8,7 @@ use App\Http\Controllers\InternController;
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
 
-Route::resource('fgbfbfhbfhb', EmployeeController::class);
+Route::resource('employees', EmployeeController::class);
 Route::patch('/employees/{employee}/status', [EmployeeController::class, 'updateStatus'])
     ->name('employees.updateStatus');
 Route::resource('interns', InternController::class);
