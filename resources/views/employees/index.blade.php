@@ -66,7 +66,7 @@
             @csrf
             @method('PATCH')
             <input type="hidden" name="status" value="Onaylandı">
-            <button type="submit" class="dropdown-item">🟢 Onaylandı</button>
+            <button type="submit" class="dropdown-item">Onaylandı</button>
         </form>
     </li>
 
@@ -75,7 +75,7 @@
             @csrf
             @method('PATCH')
             <input type="hidden" name="status" value="Beklemede">
-            <button type="submit" class="dropdown-item">🟡 Beklemede</button>
+            <button type="submit" class="dropdown-item">Beklemede</button>
         </form>
     </li>
 
@@ -84,7 +84,7 @@
             @csrf
             @method('PATCH')
             <input type="hidden" name="status" value="Reddedildi">
-            <button type="submit" class="dropdown-item">🔴 Reddedildi</button>
+            <button type="submit" class="dropdown-item">Reddedildi</button>
         </form>
     </li>
 

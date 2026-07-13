@@ -47,6 +47,7 @@ class EmployeeController extends Controller
         'position' => $request->position,
         'cv_path' => $cvPath,
         'status' => 'Beklemede',
+        'created_by' => auth()->id(),
         'hr_note' => null,
     ]);
 
@@ -94,6 +95,7 @@ class EmployeeController extends Controller
         'hr_note'        => $request->hr_note,
         'interviewer'    => $request->interviewer,
         'interview_date' => $request->interview_date,
+        'updated_by' => auth()->id(),
     ]);
 
     return redirect()

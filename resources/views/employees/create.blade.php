@@ -42,7 +42,23 @@
 
     <div class="row">
 
-        
+        <div class="col-lg-6 mb-3">
+    <label class="form-label">Ad</label>
+    <input type="text"
+           class="form-control"
+           name="first_name"
+           value="{{ old('first_name') }}"
+           placeholder="Adınızı giriniz">
+</div>
+
+<div class="col-lg-6 mb-3">
+    <label class="form-label">Soyad</label>
+    <input type="text"
+           class="form-control"
+           name="last_name"
+           value="{{ old('last_name') }}"
+           placeholder="Soyadınızı giriniz">
+</div>
 
         <div class="col-lg-6 mb-3">
             <label class="form-label">TC No</label>
@@ -101,7 +117,7 @@
                 class="form-control"
                 name="interviewer"
                 value="{{ old('interviewer') }}"
-                placeholder="Örn: Mehmet Yılmaz">
+                placeholder="Görüşmeyi yapan kişi">
         </div>
 
         <div class="col-lg-6 mb-3">

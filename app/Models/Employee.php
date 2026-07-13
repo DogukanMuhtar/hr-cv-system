@@ -23,5 +23,7 @@ class Employee extends Model
     'hr_note',
     'interviewer',
     'interview_date',
+    'created_by',
+    'updated_by',
     ];
     }

@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InternController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])
+        ->name('home');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
+
+    Route::resource('employees', EmployeeController::class);
+
+    Route::patch('/employees/{employee}/status', [EmployeeController::class, 'updateStatus'])
+        ->name('employees.updateStatus');
+
+    Route::resource('interns', InternController::class);
+
+    Route::patch('/interns/{intern}/status', [InternController::class, 'updateStatus'])
+        ->name('interns.updateStatus');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
