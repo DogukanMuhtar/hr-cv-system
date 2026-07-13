@@ -108,34 +108,40 @@ class EmployeeController extends Controller
      */
     
     
-    public function updateStatus(Request $request, Employee $employee)
+public function updateStatus(Request $request, Employee $employee)
 {
     $request->validate([
         'status' => 'required|in:Onaylandı,Beklemede,Reddedildi',
     ]);
 
     $employee->status = $request->status;
+
     if ($request->status == 'Onaylandı') {
-    $employee->approved_by = null; // Sonra auth()->id()
-    $employee->rejected_by = null;
-}
+        $employee->approved_by = auth()->id();
+        $employee->rejected_by = null;
+    }
 
-if ($request->status == 'Reddedildi') {
-    $employee->rejected_by = null; // Sonra auth()->id()
-    $employee->approved_by = null;
-}
+    if ($request->status == 'Reddedildi') {
+        $employee->rejected_by = auth()->id();
+        $employee->approved_by = null;
+    }
 
-if ($request->status == 'Beklemede') {
-    $employee->approved_by = null;
-    $employee->rejected_by = null;
-}
+    if ($request->status == 'Beklemede') {
+        $employee->approved_by = null;
+        $employee->rejected_by = null;
+    }
+
     $employee->save();
 
     return redirect()->route('employees.index')
         ->with('success', 'Başvuru durumu güncellendi.');
-}
+}    
     public function destroy(Employee $employee)
+
 {
+    $employee->deleted_by = auth()->id();
+    $employee->save();
+
     $employee->delete();
 
     return redirect()->route('employees.index');

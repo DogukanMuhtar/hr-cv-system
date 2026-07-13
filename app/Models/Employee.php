@@ -25,5 +25,6 @@ class Employee extends Model
     'interview_date',
     'created_by',
     'updated_by',
+    'deleted_by',
     ];
     }
