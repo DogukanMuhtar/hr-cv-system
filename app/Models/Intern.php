@@ -27,5 +27,10 @@ class Intern extends Model
         'hr_note',
         'interviewer',
         'interview_date',
+        'created_by',
+        'updated_by',
+        'deleted_by',
+        'approved_by',
+        'rejected_by',
     ];
 }

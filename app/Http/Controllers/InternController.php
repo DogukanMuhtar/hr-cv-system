@@ -36,7 +36,7 @@ class InternController extends Controller
 {
     $cvPath = $request->file('cv_path')->store('intern_cv', 'public');
 
-    Intern::create([
+    $intern = Intern::create([
         'first_name' => $request->first_name,
         'last_name' => $request->last_name,
         'tc_no' => $request->tc_no,
@@ -50,14 +50,14 @@ class InternController extends Controller
         'cv_path' => $cvPath,
         'status' => 'Beklemede',
         'hr_note' => null,
-
+        'created_by' => auth()->id(),
     ]);
 
-   return redirect()
-    ->route('interns.create')
-    ->with('success', 'Başvurunuz başarıyla kaydedildi.');
-   
-  
+    
+
+    return redirect()
+        ->route('interns.create')
+        ->with('success', 'Başvurunuz başarıyla kaydedildi.');
 }
 
     /**
@@ -100,6 +100,7 @@ class InternController extends Controller
     'hr_note' => $request->hr_note,
     'interviewer' => $request->interviewer,
     'interview_date' => $request->interview_date,
+    'updated_by' => auth()->id(),
     ]);
      return redirect()->route('interns.index');
 
@@ -116,31 +117,37 @@ class InternController extends Controller
     ]);
 
     $intern->status = $request->status;
+
     if ($request->status == 'Onaylandı') {
-    $intern->approved_by = null; // Sonra auth()->id()
-    $intern->rejected_by = null;
-}
+        $intern->approved_by = auth()->id();
+        $intern->rejected_by = null;
+    }
 
-if ($request->status == 'Reddedildi') {
-    $intern->rejected_by = null; // Sonra auth()->id()
-    $intern->approved_by = null;
-}
+    if ($request->status == 'Reddedildi') {
+        $intern->rejected_by = auth()->id();
+        $intern->approved_by = null;
+    }
 
-if ($request->status == 'Beklemede') {
-    $intern->approved_by = null;
-    $intern->rejected_by = null;
-}
+    if ($request->status == 'Beklemede') {
+        $intern->approved_by = null;
+        $intern->rejected_by = null;
+    }
+
     $intern->save();
 
     return redirect()->route('interns.index')
         ->with('success', 'Başvuru durumu güncellendi.');
 }
 
-    
     public function destroy(Intern $intern)
 {
+    $intern->deleted_by = auth()->id();
+    $intern->save();
+
     $intern->delete();
 
-    return redirect()->route('interns.index');
+    return redirect()->route('interns.index')
+        ->with('success', 'Başvuru silindi.');
 }
+
 } 
