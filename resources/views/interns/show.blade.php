@@ -119,6 +119,34 @@
 
                 </div>
 
+                <div class="card mt-4">
+
+            <div class="card-header">
+             <h4 class="card-title mb-0">
+             Görüşme Bilgileri
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+         <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <strong>Görüşmeyi Yapan</strong>
+                <p>{{ $intern->interviewer ?? 'Henüz görüşme yapılmadı.' }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <strong>Görüşme Tarihi</strong>
+                <p>{{ $intern->interview_date ?? 'Belirlenmedi.' }}</p>
+                            </div>
+
+                    </div>
+
+            </div>
+
+    </div>
+
             </div>
 
         </div>

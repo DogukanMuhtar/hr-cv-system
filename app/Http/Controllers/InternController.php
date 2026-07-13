@@ -98,6 +98,8 @@ class InternController extends Controller
     'internship_duration' => $request->internship_duration,
     'status' => $request->status,
     'hr_note' => $request->hr_note,
+    'interviewer' => $request->interviewer,
+    'interview_date' => $request->interview_date,
     ]);
      return redirect()->route('interns.index');
 

@@ -110,6 +110,26 @@
 
                 </div>
 
+                <div class="col-lg-6 mb-3">
+    <label class="form-label">Görüşmeyi Yapan</label>
+
+    <input type="text"
+           class="form-control"
+           name="interviewer"
+           value="{{ old('interviewer', $intern->interviewer) }}"
+           placeholder="Görüşmeyi yapan personelin adı">
+</div>
+
+            <div class="col-lg-6 mb-3">
+                <label class="form-label">Görüşme Tarihi</label>
+
+                <input type="date"
+                class="form-control"
+                name="interview_date"
+                value="{{ old('interview_date', $intern->interview_date) }}">
+        </div>
+                
+                
                 <div class="col-12 mb-4">
 
                     <label class="form-label">İK Notu</label>

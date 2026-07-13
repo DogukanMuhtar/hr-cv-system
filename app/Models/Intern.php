@@ -25,5 +25,7 @@ class Intern extends Model
         'cv_path',
         'status',
         'hr_note',
+        'interviewer',
+        'interview_date',
     ];
 }
