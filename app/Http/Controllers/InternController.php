@@ -34,6 +34,7 @@ class InternController extends Controller
      */
     public function store(StoreInternRequest $request)
 {
+      
     $cvPath = $request->file('cv_path')->store('intern_cv', 'public');
 
     $intern = Intern::create([
@@ -56,8 +57,8 @@ class InternController extends Controller
     
 
     return redirect()
-        ->route('interns.create')
-        ->with('success', 'Başvurunuz başarıyla kaydedildi.');
+    ->route('applications.home')
+    ->with('success', 'Başvurunuz başarıyla kaydedildi.');
 }
 
     /**

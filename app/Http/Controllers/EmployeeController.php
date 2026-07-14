@@ -52,7 +52,7 @@ class EmployeeController extends Controller
     ]);
 
     return redirect()
-    ->route('employees.create')
+    ->route('applications.home')
     ->with('success', 'Başvurunuz başarıyla kaydedildi.');
    
   
@@ -146,4 +146,6 @@ public function updateStatus(Request $request, Employee $employee)
 
     return redirect()->route('employees.index');
 }
+
+
 }

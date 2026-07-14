@@ -183,7 +183,7 @@
                 </div>
             </div>
         </div>
-
+@if(auth()->user()->role == 'admin')
         <!--- Sidenav Menu -->
         <div id="sidenav-menu">
            <ul class="side-nav">
@@ -198,17 +198,22 @@
            <span class="menu-text">Ana Sayfa</span>
         </a>
     </li>
-
+    
+    
     <li class="side-nav-title mt-2">Başvurular</li>
 
     <li class="side-nav-item">
+    
         <a href="{{ route('employees.index') }}" class="side-nav-link">
             <span class="menu-icon">
                 <i data-lucide="briefcase"></i>
             </span>
+                
             <span class="menu-text">Çalışan Başvuruları</span>
         </a>
+       
     </li>
+    
 
     <li class="side-nav-item">
         <a href="{{ route('interns.index') }}" class="side-nav-link">
@@ -218,6 +223,7 @@
             <span class="menu-text">Stajyer Başvuruları</span>
         </a>
     </li>
+     @endif
 
 </ul>
 </div>      <!-- #sidenav-menu -->

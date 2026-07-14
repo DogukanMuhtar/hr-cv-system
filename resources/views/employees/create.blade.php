@@ -36,7 +36,7 @@
 
     <div class="card-body">
 
-        <form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/apply/employee') }}" method="POST" enctype="multipart/form-data">
 
     @csrf
 

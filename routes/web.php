@@ -20,8 +20,9 @@ use App\Http\Controllers\ApplicationController;
 
 Route::middleware(['auth','admin'])->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index'])
-        ->name('home');
+    Route::get('/', function () {
+    return redirect()->route('login');
+});
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
@@ -38,10 +39,26 @@ Route::middleware(['auth','admin'])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::middleware('auth')->group(function () {
+
+    Route::get('/apply/employee', [EmployeeController::class, 'create'])
+        ->name('employee.apply');
+
+    Route::post('/apply/employee', [EmployeeController::class, 'store']);
+
+    Route::get('/apply/intern', [InternController::class, 'create'])
+        ->name('intern.apply');
+
+    Route::post('/apply/intern', [InternController::class, 'store']);
+    
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications.home');
 });
+
+Route::post('/apply/test', [EmployeeController::class, 'test'])->middleware('auth');
 
 require __DIR__.'/auth.php';

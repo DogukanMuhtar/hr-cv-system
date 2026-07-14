@@ -3,6 +3,7 @@
 @section('page-title', 'Başvuru Sistemi')
 @section('content')
 
+
 <div class="row">
 
     <div class="col-md-6">
@@ -14,7 +15,7 @@
 
                 <h3>Çalışan Başvurusu</h3>
 
-                <a href="{{ route('employees.create') }}" class="btn btn-primary mt-3">
+               <a href="/apply/employee" class="btn btn-primary mt-3">
                     Başvuru Yap
                 </a>
 
@@ -32,7 +33,7 @@
 
                 <h3>Stajyer Başvurusu</h3>
 
-                <a href="{{ route('interns.create') }}" class="btn btn-success mt-3">
+                <a href="{{ route('intern.apply') }}" class="btn btn-success mt-3">
                     Başvuru Yap
                 </a>
 
