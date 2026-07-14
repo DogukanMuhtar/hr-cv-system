@@ -17853,7 +17853,7 @@ html[data-sidenav-size=on-hover-active] .sidenav-menu .button-on-hover .btn-on-h
   position: absolute;
   background: transparent;
   border: none;
-  top: 0;
+  top: 10px;
   inset-inline-end: calc(var(--theme-sidenav-width-sm) * 0.5 - var(--theme-logo-sm-height) * 0.7);
   cursor: pointer;
   color: var(--theme-sidenav-item-color);

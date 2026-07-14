@@ -64,94 +64,17 @@
 
 </div>
 
-<div class="d-flex align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2 ms-auto">
 
-    
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm">
+            <i data-lucide="log-out" class="me-1"></i>
+            Çıkış Yap
+        </button>
+    </form>
 
-    
-    
-
-    <!-- Apps -->
-    <div id="apps-dropdown-grid" class="topbar-item d-none d-xl-flex">
-
-        <div class="dropdown">
-
-            <button class="topbar-link dropdown-toggle drop-arrow-none"
-                    data-bs-toggle="dropdown"
-                    type="button">
-
-                <i data-lucide="layout-grid"
-                   class="topbar-link-icon"></i>
-
-            </button>
-
-            <div class="dropdown-menu dropdown-menu-end">
-            </div>
-
-        </div>
-
-    </div>
-
-                    <div class="d-flex align-items-center gap-2">
-                        
-                        
-
-                        <div id="theme-dropdown" class="topbar-item d-none d-sm-flex">
-                            <div class="dropdown">
-                                <button class="topbar-link" data-bs-toggle="dropdown" type="button" aria-haspopup="false" aria-expanded="false">
-                                    <i data-lucide="sun" class="topbar-link-icon d-none" id="theme-icon-light"></i>
-                                    <i data-lucide="moon" class="topbar-link-icon d-none" id="theme-icon-dark"></i>
-                                    <i data-lucide="sun-moon" class="topbar-link-icon d-none" id="theme-icon-system"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end" data-thememode="dropdown">
-                                    <label class="dropdown-item cursor-pointer">
-                                        <input class="form-check-input" type="radio" name="data-bs-theme" value="light" style="display: none" />
-                                        <i data-lucide="sun" class="align-middle me-1 fs-16"></i>
-                                        <span class="align-middle">Light</span>
-                                    </label>
-                                    <label class="dropdown-item cursor-pointer">
-                                        <input class="form-check-input" type="radio" name="data-bs-theme" value="dark" style="display: none" />
-                                        <i data-lucide="moon" class="align-middle me-1 fs-16"></i>
-                                        <span class="align-middle">Dark</span>
-                                    </label>
-                                    <label class="dropdown-item cursor-pointer">
-                                        <input class="form-check-input" type="radio" name="data-bs-theme" value="system" style="display: none" />
-                                        <i data-lucide="sun-moon" class="align-middle me-1 fs-16"></i>
-                                        <span class="align-middle">System</span>
-                                    </label>
-                                </div>
-                                <!-- end dropdown-menu-->
-                            </div>
-                            <!-- end dropdown-->
-                        </div>
-
-                       
-
-                        
-
-                        <div id="fullscreen-toggler" class="topbar-item d-none d-md-flex">
-                            <button class="topbar-link" type="button" data-toggle="fullscreen">
-                                <i data-lucide="maximize" class="topbar-link-icon"></i>
-                                <i data-lucide="minimize" class="topbar-link-icon d-none"></i>
-                            </button>
-                        </div>
-
-                        <div id="monochrome-toggler" class="topbar-item d-none d-xl-flex">
-                            <button id="monochrome-mode" class="topbar-link" type="button" data-toggle="monochrome">
-                                <i data-lucide="palette" class="topbar-link-icon"></i>
-                            </button>
-                        </div>
-
-                        <div class="topbar-item d-none d-sm-flex">
-                            <button class="topbar-link btn-theme-setting" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
-                                <i data-lucide="settings" class="topbar-link-icon"></i>
-                            </button>
-                        </div>
-
-                        
-
-                        
-                    </div>
+</div>
                 </div>
             </header>
             <!-- Topbar End -->
@@ -178,13 +101,13 @@
         <span class="logo-lg">
             <img src="{{ asset('assets/images/logo.png') }}"
                  alt="GBB Bilişim"
-                 style="height:70px;">
+                 style="height:55px;">
         </span>
 
         <span class="logo-sm">
             <img src="{{ asset('assets/images/logo.png') }}"
                  alt="GBB"
-                 style="height:45px;">
+                 style="height:30px;">
         </span>
     </span>
 
@@ -192,13 +115,13 @@
         <span class="logo-lg">
             <img src="{{ asset('assets/images/logo.png') }}"
                  alt="GBB Bilişim"
-                 style="height:48px;">
+                 style="height:38px;">
         </span>
 
         <span class="logo-sm">
             <img src="{{ asset('assets/images/logo.png') }}"
                  alt="GBB"
-                 style="height:28px;">
+                 style="height:18px;">
         </span>
     </span>
 
@@ -217,13 +140,7 @@
     <div class="scrollbar" data-simplebar="">
         <div id="user-profile-settings" class="sidenav-user" style="background: url(assets/images/user-bg-pattern.svg)">
             <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <a href="#!" class="link-reset">
-                        <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle mb-2 avatar-md" />
-                        <span class="sidenav-user-name fw-bold">Geneva K.</span>
-                        <span class="fs-12 fw-semibold" data-lang="user-role">Art Director</span>
-                    </a>
-                </div>
+                
                 <div>
                     <a class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-toggle="dropdown" data-bs-offset="0,12" href="#!" aria-haspopup="false" aria-expanded="false">
                         <i data-lucide="settings" class="fs-24 align-middle ms-1"></i>
@@ -254,10 +171,14 @@
                         </a>
 
                         <!-- Logout -->
-                        <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
-                            <i data-lucide="log-out" class="me-1 fs-lg align-middle"></i>
-                            <span class="align-middle">Log Out</span>
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <button type="submit" class="dropdown-item text-danger fw-semibold">
+                        <i data-lucide="log-out" class="me-1 fs-lg align-middle"></i>
+                        <span class="align-middle">Çıkış Yap</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
