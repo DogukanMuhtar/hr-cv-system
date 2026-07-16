@@ -105,10 +105,10 @@
                                             </label>
                                         </div>
 
-                                    <a href="auth-reset-pass.html"
-                                    class="text-decoration-underline link-offset-3 text-muted">
-                                    Şifremi unuttum
-                                    </a>
+                                    <a href="{{ route('password.request') }}"
+                                class="text-decoration-underline link-offset-3 text-muted">
+                                            Şifremi unuttum
+                                        </a>
 
                                 </div>
 
