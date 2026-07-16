@@ -134,15 +134,34 @@
         placeholder="Örn: 20 İş Günü">
 </div>
                 <div class="col-lg-6 mb-3">
-                    <label class="form-label">Durum</label>
+            <label class="form-label">Durum</label>
 
-                    <select class="form-select" name="status">
-                        <option value="Beklemede">Beklemede</option>
-                        <option value="Onaylandı">Onaylandı</option>
-                        <option value="Reddedildi">Reddedildi</option>
-                    </select>
-                </div>
+            <select class="form-select" name="status">
+                <option value="Beklemede">Beklemede</option>
+                <option value="Onaylandı">Onaylandı</option>
+                <option value="Reddedildi">Reddedildi</option>
+            </select>
+        </div>
 
+        <div class="col-lg-6 mb-3">
+            <label class="form-label">Görüşmeyi Yapan</label>
+
+            <input type="text"
+                class="form-control"
+                name="interviewer"
+                value="{{ old('interviewer') }}"
+                placeholder="Görüşmeyi yapan kişi">
+        </div>
+
+        <div class="col-lg-6 mb-3">
+            <label class="form-label">Görüşme Tarihi</label>
+
+            <input type="date"
+                class="form-control"
+                name="interview_date"
+                value="{{ old('interview_date') }}">
+        </div>
+        
                 <div class="col-12 mb-4">
                     <label class="form-label">CV (PDF)</label>
 
