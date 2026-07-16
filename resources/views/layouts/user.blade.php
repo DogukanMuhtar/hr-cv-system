@@ -24,9 +24,10 @@
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button class="btn btn-danger">
-                Çıkış Yap
-            </button>
+            <button type="submit" class="btn btn-danger btn-sm">
+            <i data-lucide="log-out" class="me-1"></i>
+            Çıkış Yap
+        </button>
         </form>
 
     </div>
