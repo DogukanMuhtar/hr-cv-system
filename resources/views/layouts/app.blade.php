@@ -27,6 +27,13 @@
             <header class="app-topbar">
                 <div class="container-fluid topbar-menu">
                     <div class="d-flex align-items-center gap-2">
+                        @if(auth()->user()->role != 'admin')
+                            <a href="{{ route('applications.home') }}" class="me-4">
+                                <img src="{{ asset('assets/images/logo.png') }}"
+                                    alt="GBB Bilişim"
+                                      style="height:55px;">
+                              </a>
+                             @endif
                         <!-- Topbar Brand Logo -->
                         <div class="logo-topbar">
                             <!-- Logo light -->
@@ -50,17 +57,19 @@
                             </a>
                         </div>
 
+                       
+                        @if(auth()->user()->role == 'admin')
                         <!-- Sidebar Menu Toggle Button -->
                         <button class="sidenav-toggle-button btn btn-default btn-icon">
-                            <i data-lucide="menu"></i>
+                        <i data-lucide="menu"></i>
                         </button>
-
+                        @endif
                        <!-- Horizontal Menu Toggle Button -->
-<button class="topnav-toggle-button px-2"
-        data-bs-toggle="collapse"
-        data-bs-target="#topnav-menu">
-    <i data-lucide="menu"></i>
-</button>
+                       <button class="topnav-toggle-button px-2"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#topnav-menu">
+                   <i data-lucide="menu"></i>
+                   </button>
 
 </div>
 
@@ -94,6 +103,9 @@
                     </div>
                 </div>
             </div>
+ 
+ 
+ @if(auth()->user()->role == 'admin')
  <div class="sidenav-menu">
     <a href="{{ route('dashboard') }}" class="logo">
 
@@ -137,7 +149,44 @@
         <i data-lucide="menu" class="align-middle"></i>
     </button>
 
+    
     <div class="scrollbar" data-simplebar="">
+    <div id="sidenav-menu">
+    <ul class="side-nav">
+
+        <li class="side-nav-title mt-2">Ana Menü</li>
+
+        <li class="side-nav-item">
+            <a href="{{ route('dashboard') }}" class="side-nav-link">
+                <span class="menu-icon">
+                    <i data-lucide="layout-dashboard"></i>
+                </span>
+                <span class="menu-text">Ana Sayfa</span>
+            </a>
+        </li>
+
+        <li class="side-nav-title mt-2">Başvurular</li>
+
+        <li class="side-nav-item">
+            <a href="{{ route('employees.index') }}" class="side-nav-link">
+                <span class="menu-icon">
+                    <i data-lucide="briefcase"></i>
+                </span>
+                <span class="menu-text">Çalışan Başvuruları</span>
+            </a>
+        </li>
+
+        <li class="side-nav-item">
+            <a href="{{ route('interns.index') }}" class="side-nav-link">
+                <span class="menu-icon">
+                    <i data-lucide="graduation-cap"></i>
+                </span>
+                <span class="menu-text">Stajyer Başvuruları</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
         <div id="user-profile-settings" class="sidenav-user" style="background: url(assets/images/user-bg-pattern.svg)">
             <div class="d-flex justify-content-between align-items-center">
                 
@@ -183,58 +232,22 @@
                 </div>
             </div>
         </div>
-@if(auth()->user()->role == 'admin')
-        <!--- Sidenav Menu -->
-        <div id="sidenav-menu">
-           <ul class="side-nav">
-
-    <li class="side-nav-title mt-2">Ana Menü</li>
-
-    <li class="side-nav-item">
-        <a href="{{ route('dashboard') }}" class="side-nav-link">
-            <span class="menu-icon">
-                <i data-lucide="layout-dashboard"></i>
-            </span>
-           <span class="menu-text">Ana Sayfa</span>
-        </a>
-    </li>
-    
-    
-    <li class="side-nav-title mt-2">Başvurular</li>
-
-    <li class="side-nav-item">
-    
-        <a href="{{ route('employees.index') }}" class="side-nav-link">
-            <span class="menu-icon">
-                <i data-lucide="briefcase"></i>
-            </span>
-                
-            <span class="menu-text">Çalışan Başvuruları</span>
-        </a>
-       
-    </li>
-    
-
-    <li class="side-nav-item">
-        <a href="{{ route('interns.index') }}" class="side-nav-link">
-            <span class="menu-icon">
-                <i data-lucide="graduation-cap"></i>
-            </span>
-            <span class="menu-text">Stajyer Başvuruları</span>
-        </a>
-    </li>
-     @endif
 
 </ul>
 </div>      <!-- #sidenav-menu -->
+@endif
 </div>      <!-- .scrollbar -->
 </div>      <!-- .sidenav-menu -->
 
-<div class="main-content" style="margin-left:260px;">
 
+@if(auth()->user()->role == 'admin')
+    <div class="main-content" style="margin-left:260px;">
+@else
+    <div class="main-content" style="margin-left:0;">
+@endif
     <div class="page-content">
 
-        <div class="container-fluid">
+        <div class="container-fluid px-4">
 
         <div class="page-title-head d-flex justify-content-between align-items-center py-3">
 

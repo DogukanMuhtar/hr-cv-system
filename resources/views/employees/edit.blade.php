@@ -123,7 +123,7 @@
            class="form-control"
            name="interviewer"
            value="{{ old('interviewer', $employee->interviewer) }}"
-           placeholder="Örn: Mehmet Yılmaz">
+           placeholder="">
 </div>
 
 <div class="col-lg-6 mb-3">
