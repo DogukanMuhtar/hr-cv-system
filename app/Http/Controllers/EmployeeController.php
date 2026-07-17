@@ -37,25 +37,26 @@ class EmployeeController extends Controller
 {
     $cvPath = $request->file('cv_path')->store('employees_cv', 'public');
 
-    Employee::create([
-        'first_name' => $request->first_name,
-        'last_name' => $request->last_name,
-        'tc_no' => $request->tc_no,
-        'phone' => $request->phone,
-        'email' => $request->email,
-        'profession' => $request->profession,
-        'position' => $request->position,
-        'cv_path' => $cvPath,
-        'status' => 'Beklemede',
-        'created_by' => auth()->id(),
-        'hr_note' => null,
-    ]);
+    $employee = new Employee();
+
+    $employee->first_name = $request->first_name;
+    $employee->last_name = $request->last_name;
+    $employee->tc_no = $request->tc_no;
+    $employee->phone = $request->phone;
+    $employee->email = $request->email;
+    $employee->profession = $request->profession;
+    $employee->position = $request->position;
+    $employee->reference = $request->reference;
+    $employee->cv_path = $cvPath;
+    $employee->status = 'Beklemede';
+    $employee->created_by = auth()->id();
+    $employee->hr_note = null;
+
+    $employee->save();
 
     return redirect()
-    ->route('applications.home')
-    ->with('success', 'Başvurunuz başarıyla kaydedildi.');
-   
-  
+        ->route('applications.home')
+        ->with('success', 'Başvurunuz başarıyla kaydedildi.');
 }
 
     /**
@@ -112,6 +113,7 @@ public function updateStatus(Request $request, Employee $employee)
 {
     $request->validate([
         'status' => 'required|in:Onaylandı,Beklemede,Reddedildi',
+        'reference' => 'nullable|string|max:255',        
     ]);
 
     $employee->status = $request->status;
@@ -130,7 +132,8 @@ public function updateStatus(Request $request, Employee $employee)
         $employee->approved_by = null;
         $employee->rejected_by = null;
     }
-
+     
+    
     $employee->save();
 
     return redirect()->route('employees.index')

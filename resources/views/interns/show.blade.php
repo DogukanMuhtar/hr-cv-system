@@ -66,6 +66,12 @@
             </div>
 
             <div class="col-md-6 mb-3">
+                <strong>Referans</strong>
+                <p>{{ $intern->reference ?: 'Referans belirtilmemiş.' }}</p>
+            </div>
+
+
+            <div class="col-md-6 mb-3">
                 <strong>Sınıf</strong>
                 <p>{{ $intern->grade }}</p>
             </div>

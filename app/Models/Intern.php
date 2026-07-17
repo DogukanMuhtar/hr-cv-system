@@ -32,5 +32,6 @@ class Intern extends Model
         'deleted_by',
         'approved_by',
         'rejected_by',
+        'reference',
     ];
 }

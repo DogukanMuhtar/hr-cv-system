@@ -63,6 +63,12 @@
                 <p>{{ $employee->position }}</p>
             </div>
 
+
+            <div class="col-md-6 mb-3">
+                <strong>Referans</strong>
+                <p>{{ $employee->reference ?: 'Referans belirtilmemiş.' }}</p>
+            </div>
+
             <div class="col-md-6 mb-3">
                 <strong>Durum</strong>
 

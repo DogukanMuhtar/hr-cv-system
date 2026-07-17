@@ -101,6 +101,14 @@
         </div>
 
         <div class="col-lg-6 mb-3">
+            <label class="form-label">Referans</label>
+            <input type="text" class="form-control"
+                name="reference"
+                value="{{ old('reference') }}"
+                placeholder="Referans">
+        </div>
+
+        <div class="col-lg-6 mb-3">
             <label class="form-label">Durum</label>
 
             <select class="form-select" name="status">

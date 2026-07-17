@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('cv_path');
             $table->string('status')->default('Beklemede');
             $table->text('hr_note')->nullable();
-            
+            $table->string('reference')->nullable();
+            $table->string('approved_by')->nullable();
             $table->timestamps();
         });
     }

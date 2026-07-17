@@ -33,6 +33,7 @@ class StoreInternRequest extends FormRequest
         'internship_type' => 'required|string|max:100',
         'internship_duration' => 'required|string|max:100',
         'cv_path' => 'required|mimes:pdf|max:5120',
+        'reference' => 'nullable|string|max:255',
     ];
 
 }

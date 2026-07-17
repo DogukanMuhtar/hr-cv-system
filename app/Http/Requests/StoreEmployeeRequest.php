@@ -30,7 +30,7 @@ class StoreEmployeeRequest extends FormRequest
 
         'profession' => 'required|string|max:100',
         'position' => 'required|string|max:100',
-
+        'reference' => 'nullable|string|max:255',
         'cv_path' => 'required|mimes:pdf|max:5120',
     ];
 }

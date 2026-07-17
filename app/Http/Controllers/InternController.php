@@ -34,31 +34,31 @@ class InternController extends Controller
      */
     public function store(StoreInternRequest $request)
 {
-      
     $cvPath = $request->file('cv_path')->store('intern_cv', 'public');
 
-    $intern = Intern::create([
-        'first_name' => $request->first_name,
-        'last_name' => $request->last_name,
-        'tc_no' => $request->tc_no,
-        'phone' => $request->phone,
-        'email' => $request->email,
-        'university' => $request->university,
-        'department' => $request->department,
-        'grade' => $request->grade,
-        'internship_type' => $request->internship_type,
-        'internship_duration' => $request->internship_duration,
-        'cv_path' => $cvPath,
-        'status' => 'Beklemede',
-        'hr_note' => null,
-        'created_by' => auth()->id(),
-    ]);
+    $intern = new Intern();
 
-    
+    $intern->first_name = $request->first_name;
+    $intern->last_name = $request->last_name;
+    $intern->tc_no = $request->tc_no;
+    $intern->phone = $request->phone;
+    $intern->email = $request->email;
+    $intern->university = $request->university;
+    $intern->department = $request->department;
+    $intern->grade = $request->grade;
+    $intern->internship_type = $request->internship_type;
+    $intern->internship_duration = $request->internship_duration;
+    $intern->reference = $request->reference;
+    $intern->cv_path = $cvPath;
+    $intern->status = 'Beklemede';
+    $intern->created_by = auth()->id();
+    $intern->hr_note = null;
+
+    $intern->save();
 
     return redirect()
-    ->route('applications.home')
-    ->with('success', 'Başvurunuz başarıyla kaydedildi.');
+        ->route('applications.home')
+        ->with('success', 'Başvurunuz başarıyla kaydedildi.');
 }
 
     /**
@@ -115,6 +115,7 @@ class InternController extends Controller
 {
     $request->validate([
         'status' => 'required|in:Onaylandı,Beklemede,Reddedildi',
+        'reference' => 'nullable|string|max:255',
     ]);
 
     $intern->status = $request->status;

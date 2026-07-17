@@ -105,34 +105,45 @@
                            placeholder="Okuduğunuz bölümü giriniz">
                 </div>
                 <div class="col-lg-6 mb-3">
-    <label class="form-label">Sınıf</label>
-    <input
-        type="text"
-        class="form-control"
-        name="grade"
-        value="{{ old('grade') }}"
-        placeholder="Örn: 3. Sınıf">
-</div>
+                    <label class="form-label">Sınıf</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="grade"
+                    value="{{ old('grade') }}"
+                    placeholder="Örn: 3. Sınıf">
+            </div>
 
-<div class="col-lg-6 mb-3">
-    <label class="form-label">Staj Türü</label>
-    <input
-        type="text"
-        class="form-control"
-        name="internship_type"
-        value="{{ old('internship_type') }}"
-        placeholder="Örn: Zorunlu / Gönüllü">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label class="form-label">Staj Türü</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="internship_type"
+                    value="{{ old('internship_type') }}"
+                    placeholder="Örn: Zorunlu / Gönüllü">
+            </div>
 
-<div class="col-lg-6 mb-3">
-    <label class="form-label">Staj Süresi</label>
-    <input
-        type="text"
-        class="form-control"
-        name="internship_duration"
-        value="{{ old('internship_duration') }}"
-        placeholder="Örn: 20 İş Günü">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label class="form-label">Staj Süresi</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    name="internship_duration"
+                    value="{{ old('internship_duration') }}"
+                    placeholder="Örn: 20 İş Günü">
+                    </div>
+                
+                <div class="col-lg-6 mb-3">
+                    <label class="form-label">Referans</label>
+                    <input type="text"
+                           class="form-control"
+                           name="reference"
+                           value="{{ old('reference') }}"
+                           placeholder="Referans">
+
+                </div>
+                
                 <div class="col-lg-6 mb-3">
             <label class="form-label">Durum</label>
 
@@ -161,7 +172,7 @@
                 name="interview_date"
                 value="{{ old('interview_date') }}">
         </div>
-        
+
                 <div class="col-12 mb-4">
                     <label class="form-label">CV (PDF)</label>
 
