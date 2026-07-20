@@ -9,3 +9,7 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+
+# Ignore generated/vendor frontend assets in language statistics
+public/assets/** linguist-vendored
+resources/views/vendor/** linguist-vendored
