@@ -69,4 +69,4 @@ php artisan serve
 
 ## Author
 
-Dogukan Muhtar
+Doğukan Muhtar
