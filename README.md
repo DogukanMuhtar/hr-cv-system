@@ -1,5 +1,10 @@
 # HR CV Management System
 
+![Laravel](https://img.shields.io/badge/Laravel-10-red?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A Human Resources CV Management System developed with Laravel 10 for managing employee and intern applications.
 
 ## Features
