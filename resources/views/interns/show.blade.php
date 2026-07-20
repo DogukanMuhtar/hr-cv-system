@@ -70,7 +70,6 @@
                 <p>{{ $intern->reference ?: 'Referans belirtilmemiş.' }}</p>
             </div>
 
-
             <div class="col-md-6 mb-3">
                 <strong>Sınıf</strong>
                 <p>{{ $intern->grade }}</p>
@@ -96,7 +95,6 @@
                 @else
                     <span class="badge bg-danger">Reddedildi</span>
                 @endif
-
             </div>
 
             <div class="col-12 mb-3">
@@ -108,9 +106,7 @@
                 <a href="{{ asset('storage/'.$intern->cv_path) }}"
                    target="_blank"
                    class="btn btn-info">
-
                     CV'yi Görüntüle
-
                 </a>
 
             </div>
@@ -120,42 +116,70 @@
                 <strong>İK Notu</strong>
 
                 <div class="border rounded p-3 mt-2 bg-light">
-
                     {{ $intern->hr_note ?: 'Henüz not eklenmemiş.' }}
-
                 </div>
 
-                <div class="card mt-4">
+            </div>
 
-            <div class="card-header">
-             <h4 class="card-title mb-0">
-             Görüşme Bilgileri
-            </h4>
         </div>
-
-        <div class="card-body">
-
-         <div class="row">
-
-            <div class="col-md-6 mb-3">
-                <strong>Görüşmeyi Yapan</strong>
-                <p>{{ $intern->interviewer ?? 'Henüz görüşme yapılmadı.' }}</p>
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <strong>Görüşme Tarihi</strong>
-                <p>{{ $intern->interview_date ?? 'Belirlenmedi.' }}</p>
-                            </div>
-
-                    </div>
-
-            </div>
 
     </div>
 
+</div>
+
+
+{{-- Görüşme Bilgileri --}}
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h4 class="card-title mb-0">
+            Görüşme Bilgileri
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        @if($intern->interviews->count() > 0)
+
+            <div class="table-responsive mb-4">
+
+                <table class="table table-bordered align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Görüşmeyi Yapan</th>
+                            <th>Görüşme Tarihi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach($intern->interviews as $interview)
+
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $interview->interviewer }}</td>
+                                <td>{{ $interview->interview_date->format('d.m.Y') }}</td>
+                            </tr>
+
+                        @endforeach
+
+                    </tbody>
+
+                </table>
+
             </div>
 
-        </div>
+        @else
+
+            <div class="alert alert-info">
+                Bu başvuru için henüz görüşme eklenmemiş.
+            </div>
+
+        @endif
+
+
 
     </div>
 

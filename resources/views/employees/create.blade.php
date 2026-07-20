@@ -108,15 +108,7 @@
                 placeholder="Referans">
         </div>
 
-        <div class="col-lg-6 mb-3">
-            <label class="form-label">Durum</label>
-
-            <select class="form-select" name="status">
-                <option value="Beklemede">Beklemede</option>
-                <option value="Onaylandı">Onaylandı</option>
-                <option value="Reddedildi">Reddedildi</option>
-            </select>
-        </div>
+        
 
         <div class="col-lg-6 mb-3">
             <label class="form-label">Görüşmeyi Yapan</label>

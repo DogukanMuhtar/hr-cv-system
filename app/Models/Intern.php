@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Intern extends Model
 {
     use SoftDeletes;
     use HasFactory;
 
-     protected $fillable = [
+    protected $fillable = [
         'first_name',
         'last_name',
         'tc_no',
@@ -34,4 +35,9 @@ class Intern extends Model
         'rejected_by',
         'reference',
     ];
+
+    public function interviews(): MorphMany
+    {
+        return $this->morphMany(Interview::class, 'interviewable');
+    }
 }

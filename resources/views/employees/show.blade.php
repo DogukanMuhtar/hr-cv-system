@@ -111,35 +111,55 @@
 
     </div>
 
-<div class="card mt-4">
+            <div class="card mt-4">
 
-    <div class="card-header">
-        <h4 class="card-title mb-0">
+            <div class="card-header">
+            <h4 class="card-title mb-0">
             Görüşme Bilgileri
-        </h4>
-    </div>
-
-    <div class="card-body">
-
-        <div class="row">
-
-            <div class="col-md-6 mb-3">
-                <strong>Görüşmeyi Yapan</strong>
-
-                <p>
-                    {{ $employee->interviewer ?: 'Henüz görüşme yapılmadı.' }}
-                </p>
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <strong>Görüşme Tarihi</strong>
-
-                <p>
-                    {{ $employee->interview_date ?: 'Belirlenmedi' }}
-                </p>
-            </div>
-
+            </h4>
         </div>
+
+    @if($employee->interviews->count() > 0)
+
+            <div class="table-responsive mb-4">
+
+            <table class="table table-bordered align-middle">
+
+            <thead>
+            <tr>
+            <th>#</th>
+            <th>Görüşmeyi Yapan</th>
+            <th>Görüşme Tarihi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach($employee->interviews as $interview)
+
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $interview->interviewer }}</td>
+                    <td>{{ $interview->interview_date->format('d.m.Y') }}</td>
+                </tr>
+
+            @endforeach
+
+        </tbody>
+
+    </table>
+
+</div>
+
+@else
+
+            <div class="alert alert-info">
+        Bu başvuru için henüz görüşme eklenmemiş.
+            </div>
+
+@endif
+
+
 
     </div>
 

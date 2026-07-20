@@ -116,24 +116,7 @@
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-3">
-    <label class="form-label">Görüşmeyi Yapan</label>
-
-    <input type="text"
-           class="form-control"
-           name="interviewer"
-           value="{{ old('interviewer', $employee->interviewer) }}"
-           placeholder="">
-</div>
-
-<div class="col-lg-6 mb-3">
-    <label class="form-label">Görüşme Tarihi</label>
-
-    <input type="date"
-           class="form-control"
-           name="interview_date"
-           value="{{ old('interview_date', $employee->interview_date) }}">
-</div>
+                
 
                 <div class="col-12 mb-4">
                     <label class="form-label">İK Notu</label>
@@ -152,6 +135,67 @@
                 </button>
 
             </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h4 class="card-title mb-0">
+            Yeni Görüşme Ekle
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST"
+              action="{{ route('employees.interviews.store', $employee) }}">
+
+            @csrf
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="interviewer" class="form-label">
+                        Görüşmeyi Yapan
+                    </label>
+
+                    <input
+                        type="text"
+                        name="interviewer"
+                        id="interviewer"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="interview_date" class="form-label">
+                        Görüşme Tarihi
+                    </label>
+
+                    <input
+                        type="date"
+                        name="interview_date"
+                        id="interview_date"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Görüşme Ekle
+            </button>
 
         </form>
 

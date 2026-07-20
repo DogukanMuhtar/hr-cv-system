@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InternController;
 use App\Http\Controllers\ApplicationController;
-
+use App\Http\Controllers\InterviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,10 +32,16 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::patch('/employees/{employee}/status', [EmployeeController::class, 'updateStatus'])
         ->name('employees.updateStatus');
 
+    Route::post('/employees/{employee}/interviews', [InterviewController::class, 'storeEmployee'])
+        ->name('employees.interviews.store');
+
     Route::resource('interns', InternController::class);
 
     Route::patch('/interns/{intern}/status', [InternController::class, 'updateStatus'])
         ->name('interns.updateStatus');
+
+    Route::post('/interns/{intern}/interviews', [InterviewController::class, 'storeIntern'])
+        ->name('interns.interviews.store');
 });
 
 Route::middleware('auth')->group(function () {
